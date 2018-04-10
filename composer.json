@@ -2,7 +2,7 @@
   "name": "pete-jaworski/m2-currencyconverter",
   "description": "Magento 2 Currency Converter",
   "type": "magento2-module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "authors": [
     {
       "name": "Piotr Jaworski"
