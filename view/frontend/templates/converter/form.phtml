@@ -1,0 +1,42 @@
+<div class="orba-currency-converter-wrapper">
+    <form class="form" data-hasrequired="* pola wymagane" novalidate="novalidate">
+        <fieldset class="fieldset">
+            <div class="field required">
+                <label class="label" for="name"><span>RUB</span></label>
+                <div class="control">
+                    <input name="orba-currency-converter-input" id="orba-currency-converter-input" class="input-text" type="text" data-validate="{required:true}" aria-required="true">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" for="name"><span>PLN</span></label>
+                <div class="control">
+                    <input readonly name="orba-currency-converter-result" id="orba-currency-converter-result"  class="input-text" type="text" >
+                </div>
+            </div>
+        </fieldset>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button id="orba-currency-convert-button" type="button">Convert</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    require([
+        'jquery',
+        'Orba_CurrencyConverter/js/currencyConverter'
+    ], function($, currencyConverter){
+        $(document).on('click','#orba-currency-convert-button',function() {
+            if($('#orba-currency-converter-input').val() && $.isNumeric($('#orba-currency-converter-input').val())){
+                $('#orba-currency-converter-result').val('Converting...');
+                currencyConverter($('#orba-currency-converter-input').val()).done(
+                    function(response){
+                        $('#orba-currency-converter-result').val(response);
+                    }
+                );
+            }
+        });
+    });
+</script>
+
+
